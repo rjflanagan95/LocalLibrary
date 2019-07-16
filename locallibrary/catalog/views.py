@@ -15,12 +15,18 @@ def index(request):
     
     # The 'all()' is implied by default.    
     num_authors = Author.objects.count()
+
+    # counts for genres and books that contain a particular word (tutorial challenge)
+    num_genres_specific = Genre.objects.filter(name__contains='fiction').count()
+    num_books_specific = Book.objects.filter(title__contains='cat').count()
     
     context = {
         'num_books': num_books,
         'num_instances': num_instances,
         'num_instances_available': num_instances_available,
         'num_authors': num_authors,
+        'num_genres_specific': num_genres_specific,
+        'num_books_specific': num_books_specific,
     }
 
     # Render the HTML template index.html with the data in the context variable
