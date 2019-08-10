@@ -27,6 +27,7 @@
           {% endif %}
           {% if perms.catalog.can_mark_returned %}
             <li><a href="{% url 'all-borrowed' %}">All Borrowed Books</a></li>
+            <li><a href="{% url 'author_create' %}">Add an Author</a></li>
           {% endif %}
         </ul>
      {% endblock %}
